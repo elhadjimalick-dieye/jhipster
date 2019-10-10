@@ -1,0 +1,70 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [
+        {
+            "relationshipName": "clientEnvoyeur",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "transaction"
+        },
+        {
+            "relationshipName": "clientReceveur",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id",
+            "otherEntityRelationshipName": "transaction"
+        },
+        {
+            "relationshipName": "userEnvoyer",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transaction"
+        },
+        {
+            "relationshipName": "userReceveur",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "transaction"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "frais",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "commissionEtat",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "commissionSysteme",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "commissionReceveur",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "commissionEnvoyeur",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20191010103009",
+    "dto": "no",
+    "searchEngine": false,
+    "service": "no",
+    "entityTableName": "transaction",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

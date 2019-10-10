@@ -1,0 +1,67 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transaction">
+            <h2><span jhiTranslate="projetJhipsterApp.transaction.detail.title">Transaction</span> {{transaction.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.frais">Frais</span></dt>
+                <dd>
+                    <span>{{transaction.frais}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.montant">Montant</span></dt>
+                <dd>
+                    <span>{{transaction.montant}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.commissionEtat">Commission Etat</span></dt>
+                <dd>
+                    <span>{{transaction.commissionEtat}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.commissionSysteme">Commission Systeme</span></dt>
+                <dd>
+                    <span>{{transaction.commissionSysteme}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.commissionReceveur">Commission Receveur</span></dt>
+                <dd>
+                    <span>{{transaction.commissionReceveur}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.commissionEnvoyeur">Commission Envoyeur</span></dt>
+                <dd>
+                    <span>{{transaction.commissionEnvoyeur}}</span>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.clientEnvoyeur">Client Envoyeur</span></dt>
+                <dd>
+                    <div *ngIf="transaction.clientEnvoyeur">
+                        <a [routerLink]="['/client', transaction.clientEnvoyeur?.id, 'view']">{{transaction.clientEnvoyeur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.clientReceveur">Client Receveur</span></dt>
+                <dd>
+                    <div *ngIf="transaction.clientReceveur">
+                        <a [routerLink]="['/client', transaction.clientReceveur?.id, 'view']">{{transaction.clientReceveur?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.userEnvoyer">User Envoyer</span></dt>
+                <dd>
+                    {{transaction.userEnvoyer?.login}}
+                </dd>
+                <dt><span jhiTranslate="projetJhipsterApp.transaction.userReceveur">User Receveur</span></dt>
+                <dd>
+                    {{transaction.userReceveur?.login}}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transaction', transaction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

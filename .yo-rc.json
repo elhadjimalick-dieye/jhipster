@@ -1,0 +1,48 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "webdev",
+      "nativeLanguage": "fr"
+    },
+    "jhipsterVersion": "6.3.1",
+    "applicationType": "monolith",
+    "baseName": "projet_jhipster",
+    "packageName": "webdev",
+    "packageFolder": "webdev",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "YjcwODM2YThlOWJhMmFkYzA5ZDNjMzQyZTY4OGNjMzI0NDA3YTQyNzA4NzRmM2E0MDY2YjlkMjBjM2JkNzY2YmE4MjIyNWU0NzBhZjFmZTM5NzZjZmE2ZDA5MDI5ZDFmZDc0OTM1NWU1MjkxNmQxNmVjMTY2MmJlZWFjY2Y2OWM=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fr",
+    "languages": [
+      "fr",
+      "en",
+      "it"
+    ],
+    "blueprints": []
+  }
+}

@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transaction-heading" jhiTranslate="projetJhipsterApp.transaction.home.createOrEditLabel">Create or edit a Transaction</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.frais" for="field_frais">Frais</label>
+                    <input type="number" class="form-control" name="frais" id="field_frais"
+                           formControlName="frais"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.montant" for="field_montant">Montant</label>
+                    <input type="number" class="form-control" name="montant" id="field_montant"
+                           formControlName="montant"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.commissionEtat" for="field_commissionEtat">Commission Etat</label>
+                    <input type="number" class="form-control" name="commissionEtat" id="field_commissionEtat"
+                           formControlName="commissionEtat"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.commissionSysteme" for="field_commissionSysteme">Commission Systeme</label>
+                    <input type="number" class="form-control" name="commissionSysteme" id="field_commissionSysteme"
+                           formControlName="commissionSysteme"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.commissionReceveur" for="field_commissionReceveur">Commission Receveur</label>
+                    <input type="number" class="form-control" name="commissionReceveur" id="field_commissionReceveur"
+                           formControlName="commissionReceveur"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.commissionEnvoyeur" for="field_commissionEnvoyeur">Commission Envoyeur</label>
+                    <input type="number" class="form-control" name="commissionEnvoyeur" id="field_commissionEnvoyeur"
+                           formControlName="commissionEnvoyeur"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.clientEnvoyeur" for="field_clientEnvoyeur">Client Envoyeur</label>
+                    <select class="form-control" id="field_clientEnvoyeur" name="clientEnvoyeur" formControlName="clientEnvoyeur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id === editForm.get('clientEnvoyeur').value?.id ? editForm.get('clientEnvoyeur').value : clientOption" *ngFor="let clientOption of clients; trackBy: trackClientById">{{clientOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.clientReceveur" for="field_clientReceveur">Client Receveur</label>
+                    <select class="form-control" id="field_clientReceveur" name="clientReceveur" formControlName="clientReceveur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clientOption.id === editForm.get('clientReceveur').value?.id ? editForm.get('clientReceveur').value : clientOption" *ngFor="let clientOption of clients; trackBy: trackClientById">{{clientOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.userEnvoyer" for="field_userEnvoyer">User Envoyer</label>
+                    <select class="form-control" id="field_userEnvoyer" name="userEnvoyer" formControlName="userEnvoyer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('userEnvoyer').value?.id ? editForm.get('userEnvoyer').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="projetJhipsterApp.transaction.userReceveur" for="field_userReceveur">User Receveur</label>
+                    <select class="form-control" id="field_userReceveur" name="userReceveur" formControlName="userReceveur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('userReceveur').value?.id ? editForm.get('userReceveur').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
